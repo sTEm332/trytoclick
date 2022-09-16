@@ -12,11 +12,15 @@
   }
 
   #div1{
+    transition-duration: 0.1s;
     position: absolute;
-    padding: 9px;
+    padding: 5px;
+    font-size: 15px;
     
     background: red;
     color: black;
+    left: 45%;
+    top: 10%;
   }
 
   </style>
@@ -28,6 +32,16 @@
   function over() {
     ran =Math.floor(Math.random() * 80)
     ran2 = Math.floor(Math.random() * 80)
+    ran3 =  Math.floor(Math.random() * 100)
+    console.log(`ran3 is ${ran3}`)
+    if (ran3 == 99)
+    {
+      document.getElementById('div1').style.background='green'
+      document.getElementById('div1').textContent="Нажми если пидор"
+    }else{
+      document.getElementById('div1').textContent="Нажми если не пидор"
+      document.getElementById('div1').style.background='red'
+    }
     console.log(ran,ran2)
     console.log(`${ran}px`)
     document.getElementById('div1').style.left=`${ran}%`
