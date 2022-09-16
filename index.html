@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <style type="text/css">
+  
+  body{
+    width: 100%;
+    height: 100%;
+    background: #333;
+  }
+
+  #div1{
+    position: absolute;
+    padding: 9px;
+    
+    background: red;
+    color: black;
+  }
+
+  </style>
+</head>
+<body>
+<div on_click="clicked()" onmouseover="over()" id='div1' >Нажми если не пидор</div>  
+</body>
+<script type="text/javascript">
+  function over() {
+    ran =Math.floor(Math.random() * 80)
+    ran2 = Math.floor(Math.random() * 80)
+    console.log(ran,ran2)
+    console.log(`${ran}px`)
+    document.getElementById('div1').style.left=`${ran}%`
+    document.getElementById('div1').style.top=`${ran2}%`
+    
+  }
+  function clicked(){
+    console.log("clicked")
+    document.getElementById('div1').innerHTML='хуй'
+  } 
+
+</script>
+</html>
