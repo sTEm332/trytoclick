@@ -6,12 +6,17 @@
   <style type="text/css">
   
   body{
+    user-select: none;
     width: 100%;
     height: 100%;
     background: #333;
   }
 
-  #div1{
+  .div1{
+    position: absolute;
+    left: 50%;
+    
+    
     transition-duration: 0.1s;
     position: absolute;
     padding: 5px;
@@ -19,38 +24,79 @@
     
     background: red;
     color: black;
-    left: 45%;
+    
     top: 10%;
   }
-
+  #ct{
+    font-family: "Gill Sans", sans-serif;
+    transition-duration: 5s;
+    opacity: 0%;
+    font-size: 10em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 20%;
+    z-index: -1;
+  }
   </style>
 </head>
 <body>
-<div on_click="clicked()" onmouseover="over()" id='div1' >Нажми если не пидор</div>  
+<div id='ct'>Нажми!!!</div>
+<button onclick="clicked()" onmouseover="over()" class='div1' >Нажми если не пидор</button>  
+
 </body>
 <script type="text/javascript">
   function over() {
-    ran =Math.floor(Math.random() * 80)
-    ran2 = Math.floor(Math.random() * 80)
-    ran3 =  Math.floor(Math.random() * 100)
-    console.log(`ran3 is ${ran3}`)
-    if (ran3 == 99)
-    {
-      document.getElementById('div1').style.background='green'
-      document.getElementById('div1').textContent="Нажми если пидор"
+    divs = document.getElementsByClassName('div1')
+    text = document.getElementsByClassName('div1')[0].textContent
+    if (text !='Нажми если пидор'){
+      
+      ran3 =  Math.floor(Math.random() * 100)
+      console.log(`ran3 is ${ran3}`)
+      if (ran3 == 99)
+      {
+        for (var i = divs.length - 1; i >= 0; i--) {
+          divs[i].style.background='green'
+          divs[i].textContent="Нажми если пидор"
+        }        
+      }else{
+
+        for (var i = divs.length - 1; i >= 0; i--) {
+          divs[i].textContent="Нажми если не пидор"
+          divs[i].style.background='red'
+        }
+        
+      }
+      
+      
+    
+      console.log(`textContent is ${text}`)
+      for (var i = divs.length - 1; i >= 0; i--) {   
+        ran =Math.floor(Math.random() * 80)
+        ran2 = Math.floor(Math.random() * 80)   
+        divs[i].style.left=`${ran}%`
+        divs[i].style.top=`${ran2}%`
+      }
     }else{
-      document.getElementById('div1').textContent="Нажми если не пидор"
-      document.getElementById('div1').style.background='red'
+      document.getElementById('ct').style.opacity='100%'
+      console.log(`else textContent is ${text}`)
     }
-    console.log(ran,ran2)
-    console.log(`${ran}px`)
-    document.getElementById('div1').style.left=`${ran}%`
-    document.getElementById('div1').style.top=`${ran2}%`
+    
     
   }
   function clicked(){
     console.log("clicked")
-    document.getElementById('div1').innerHTML='хуй'
+    
+    text = document.getElementsByClassName('div1')[0].textContent
+    if (text =='Нажми если пидор'){
+      alert('я знал!')
+      window.location.reload()
+    }else{
+      ran =Math.floor(Math.random() * 80)
+      ran2 = Math.floor(Math.random() * 80)
+      document.getElementsByClassName('div1')[0].style.left=`${ran}%`
+      document.getElementsByClassName('div1')[0].style.top=`${ran2}%`
+    }
   } 
 
 </script>
