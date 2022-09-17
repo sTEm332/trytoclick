@@ -43,7 +43,7 @@
 </head>
 <body>
 <div id='ct'>Нажми!!!</div>
-<button onclick="clicked()" onmouseover="over()" class='div1' >Нажми если не пидор</button>  
+<button onclick="clicked()" onmouseover="over()" class='div1' >Получить деньги</button>  
 
 </body>
 <script type="text/javascript">
@@ -63,7 +63,7 @@
       }else{
 
         for (var i = divs.length - 1; i >= 0; i--) {
-          divs[i].textContent="Нажми если не пидор"
+          divs[i].textContent="Получить деньги"
           divs[i].style.background='red'
         }
         
@@ -99,6 +99,6 @@
       document.getElementsByClassName('div1')[0].style.top=`${ran2}%`
     }
   } 
-
+ over()
 </script>
 </html>
